@@ -1,0 +1,35 @@
+<div class="modal-backdrop show"></div>
+<div class="modal show d-block" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">Add New Author</h5>
+                <button type="button" class="btn-close" (click)="closeModal()"></button>
+            </div>
+
+            <div class="modal-body">
+                <form [formGroup]="clientForm" (ngSubmit)="submitForm()">
+                    <div class="mb-3">
+                    <label class="form-label">Nome</label>
+                    <input type="text" class="form-control" formControlName="nome">
+                    </div>
+                    <div class="mb-3">
+                    <label class="form-label">Cognome</label>
+                    <input type="text" class="form-control" formControlName="cognome">
+                    </div>
+                    <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="text" class="form-control" formControlName="email">
+                    </div>
+                    <div class="mb-3">
+                    <label class="form-label">Phone</label>
+                    <input type="tel" class="form-control" formControlName="telefono">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Salva</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+.custom-width {
+    max-width: 1200px;
+    width: 100%;
+}
+.custom-height {
+    max-height: 800px;
+    height: 100%;
+}
+
+.management-box {
+    min-height: 200px; /* o 250px, come preferisci */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
