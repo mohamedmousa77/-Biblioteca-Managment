@@ -4,14 +4,15 @@
         <div class="col-md-4 bg-light rounded shadow-sm m-3 text-center management-box">
             <h4 class="mb-3">Manage Authors</h4>
             <div class="d-flex justify-content-center gap-2">
-                <button type="button" class="btn btn-outline-success" (click)="showAuthorModal = true">Add new Author</button>
-                <button type="button" class="btn btn-outline-info">View & Manage Authors</button>
+                <button type="button" class="btn btn-outline-success" (click)="showAuthorForm = true">Add new Author</button>
+                <button type="button" class="btn btn-outline-info" (click)="showAuthorTable = true">View & Manage Authors</button>
                 <!-- <button type="button" class="btn btn-outline-danger">Delete</button>
                 <button type="button" class="btn btn-outline-warning">Update info</button> -->
             </div>
         </div>
         <!--  -->
-        <author-modal *ngIf="showAuthorModal" (close)="showAuthorModal = false"></author-modal>
+        <author-modal *ngIf="showAuthorForm" (close)="showAuthorForm = false"></author-modal>
+        <author-table *ngIf="showAuthorTable" (close)="showAuthorTable = false"></author-table>
         <!-- CLIENTS -->
         <div class="col-md-4 bg-light rounded shadow-sm m-3 text-center management-box">
             <h4 class="mb-3">Manage Clients</h4>
