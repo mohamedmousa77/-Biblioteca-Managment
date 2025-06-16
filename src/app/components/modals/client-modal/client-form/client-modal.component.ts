@@ -18,11 +18,11 @@ export class ClientModalComponent {
 
   client: Client = {
     Persona: {
-      Cognome: '',
-      Id: 0,
-      Nome: ''
+      cognome: '',
+      id: 0,
+      nome: ''
     },
-    Mail: '',
+    mail: '',
     telefono: '',
     socio: false,
   }
@@ -43,12 +43,12 @@ export class ClientModalComponent {
 
       this.client = {
       Persona: {
-        Id: 0,
-        Nome: formData.nome,
-        Cognome: formData.cognome
+        id: 0,
+        nome: formData.nome,
+        cognome: formData.cognome
       },
       socio: false,
-      Mail: formData.email,
+      mail: formData.email,
       telefono: formData.telefono
     };
     console.log("✅ Author form data to send:", formData); 

@@ -22,13 +22,13 @@ export class AuthorModalComponent {
   errorMsg: string = '';
 
   author : Author = {
-      Persona : {
-        Id: 0,
-        Nome: '',
-        Cognome: '',
+      persona : {
+        id: 0,
+        nome: '',
+        cognome: '',
       },
-      CasaEditrice: '',
-      IndiceDiGradimento:0,
+      casaEditrice: '',
+      indiceDiGradimento:0,
       }; 
 
   constructor(private fb: FormBuilder, private authorServices: AuthorService) {
@@ -46,13 +46,13 @@ export class AuthorModalComponent {
       const formData = this.authorForm.value;
       
       this.author = {
-      Persona: {
-        Id: 0,
-        Nome: formData.nome,
-        Cognome: formData.cognome
+      persona: {
+        id: 0,
+        nome: formData.nome,
+        cognome: formData.cognome
       },
-      CasaEditrice: formData.casaEditrice,
-      IndiceDiGradimento: formData.indiceDiGradimento
+      casaEditrice: formData.casaEditrice,
+      indiceDiGradimento: formData.indiceDiGradimento
     };
     console.log("✅ Author form data to send:", formData); 
     console.log("✅ Payload to send:", this.author);

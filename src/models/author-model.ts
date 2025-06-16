@@ -1,7 +1,7 @@
 import { Persona } from "./persona-model";
 
 export interface Author {
-    Persona: Persona,
-    CasaEditrice: string,
-    IndiceDiGradimento: number,
+    persona: Persona;
+    casaEditrice: string;
+    indiceDiGradimento: number;
 }

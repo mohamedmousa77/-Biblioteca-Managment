@@ -4,32 +4,32 @@
         <div class="modal-content">
 
             <div class="modal-header">
-                <h5 class="modal-title">Manage Author</h5>
+                <h5 class="modal-title">Manage Client</h5>
                 <button type="button" class="btn-close" (click)="closeModal()"></button>
             </div>
 
             <div class="modal-body">
-                <table class="table table-hover"  *ngIf="authors.length > 0">
+                <table class="table table-hover"  *ngIf="clients.length > 0">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Nome</th>
                             <th scope="col">Cognome</th> 
-                            <th scope="col">Casa Editrice</th>
-                            <th scope="col">Indice Di Gradimento</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Numero di Telefono</th>
                         </tr>
                     </thead>
                     <tbody *ngIf="dataReady" >
-                        <tr *ngFor="let author of authors">
-                            <td>{{author.persona.id}}</td>
-                            <td>{{author.persona.nome}}</td>
-                            <td>{{author.persona.cognome}}</td>
-                            <td>{{author.casaEditrice}}</td>
-                            <td>{{author.indiceDiGradimento}}</td>  
+                        <tr *ngFor="let client of clients">
+                            <td>{{client.Persona.id}}</td>
+                            <td>{{client.Persona.nome}}</td>
+                            <td>{{client.Persona.cognome}}</td>
+                            <td>{{client.mail}}</td>
+                            <td>{{client.telefono}}</td>  
                             <!-- <pre>{{ author | json }}</pre> -->
                             <div class="d-grid gap-2 d-md-block p-2">
-                                <td><button class="btn btn-outline-danger btn-lg" (click)="deleteAuthor(author.persona.id)">Delete</button></td>
-                                <td><button class="btn btn-outline-primary btn-lg" (click)="editeAuthor(author.persona.id, author)">Edit</button></td>
+                                <td><button class="btn btn-outline-danger btn-lg" (click)="deleteClient(client.Persona.id)">Delete</button></td>
+                                <td><button class="btn btn-outline-primary btn-lg" (click)="editeClient(client.Persona.id, client)">Edit</button></td>
                             </div>
                         </tr>
                     </tbody>

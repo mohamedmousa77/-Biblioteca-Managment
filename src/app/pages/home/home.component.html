@@ -17,16 +17,16 @@
         <div class="col-md-4 bg-light rounded shadow-sm m-3 text-center management-box">
             <h4 class="mb-3">Manage Clients</h4>
             <div class="d-flex justify-content-center gap-2">
-                <button type="button" class="btn btn-outline-success" (click)="showClientModal = true">Add new Client</button>
-                <button type="button" class="btn btn-outline-info">View & Manage Clients</button>
+                <button type="button" class="btn btn-outline-success" (click)="showClientForm = true">Add new Client</button>
+                <button type="button" class="btn btn-outline-info" (click)="showClientTable = true">View & Manage Clients</button>
                 <!-- <button type="button" class="btn btn-outline-danger">Delete</button>
                 <button type="button" class="btn btn-outline-warning">Update info</button> -->
             </div>
         </div>
     </div>
     <!--  -->
-        <client-modal *ngIf="showClientModal" (close)="showClientModal = false"></client-modal>
-
+        <client-modal *ngIf="showClientForm" (close)="showClientForm = false"></client-modal>
+        <client-table  *ngIf="showClientTable" (close)="showClientTable = false"></client-table>
     <div class="row justify-content-center mt-2">
         <!-- BOOKS -->
         <div class="col-md-4 bg-light rounded shadow-sm m-3 text-center management-box">
