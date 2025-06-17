@@ -23,7 +23,7 @@ export class AuthorModalComponent {
 
   author : Author = {
       persona : {
-        id: 0,
+        // id: 0,
         nome: '',
         cognome: '',
       },
@@ -47,7 +47,7 @@ export class AuthorModalComponent {
       
       this.author = {
       persona: {
-        id: 0,
+        // id: 0,
         nome: formData.nome,
         cognome: formData.cognome
       },

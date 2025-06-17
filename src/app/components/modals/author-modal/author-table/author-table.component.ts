@@ -51,6 +51,7 @@ deleteAuthor(id: number)
   this.AuthorS.deleteAuthor(id).subscribe({
         next: (response) => {
           this.authors = this.authors.filter(e => e.persona.id !== id);
+          
         },
         error: (err) => {
           console.error('error deleting employee', err);

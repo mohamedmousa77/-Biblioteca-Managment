@@ -19,7 +19,7 @@ export class ClientModalComponent {
   client: Client = {
     Persona: {
       cognome: '',
-      id: 0,
+      // id: 0,
       nome: ''
     },
     mail: '',
@@ -43,7 +43,7 @@ export class ClientModalComponent {
 
       this.client = {
       Persona: {
-        id: 0,
+        // id: 0,
         nome: formData.nome,
         cognome: formData.cognome
       },

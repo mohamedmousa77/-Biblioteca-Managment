@@ -28,8 +28,8 @@
                             <td>{{author.indiceDiGradimento}}</td>  
                             <!-- <pre>{{ author | json }}</pre> -->
                             <div class="d-grid gap-2 d-md-block p-2">
-                                <td><button class="btn btn-outline-danger btn-lg" (click)="deleteAuthor(author.persona.id)">Delete</button></td>
-                                <td><button class="btn btn-outline-primary btn-lg" (click)="editeAuthor(author.persona.id, author)">Edit</button></td>
+                                <td><button class="btn btn-outline-danger btn-lg" (click)="deleteAuthor(author.persona.id!)">Delete</button></td>
+                                <!-- <td><button class="btn btn-outline-primary btn-lg" (click)="editeAuthor(author.persona.id!, author)">Edit</button></td> -->
                             </div>
                         </tr>
                     </tbody>

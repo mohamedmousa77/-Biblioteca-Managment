@@ -41,7 +41,7 @@ deleteClient(id: number)
   console.info(`ID inviato per l'eliminazione: ${id}`);
   this.clientSer.deleteClient(id).subscribe({
         next: (response) => {
-          
+          console.log(`Cliente eliminato!, ${response}`);
           this.clients = this.clients.filter(e => e.Persona.id !== id);
         },
         error: (err) => {

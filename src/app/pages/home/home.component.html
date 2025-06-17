@@ -10,7 +10,7 @@
                 <button type="button" class="btn btn-outline-warning">Update info</button> -->
             </div>
         </div>
-        <!--  -->
+        <!-- MODAL -->
         <author-modal *ngIf="showAuthorForm" (close)="showAuthorForm = false"></author-modal>
         <author-table *ngIf="showAuthorTable" (close)="showAuthorTable = false"></author-table>
         <!-- CLIENTS -->
@@ -24,7 +24,7 @@
             </div>
         </div>
     </div>
-    <!--  -->
+    <!-- MODAL CLIENTS -->
         <client-modal *ngIf="showClientForm" (close)="showClientForm = false"></client-modal>
         <client-table  *ngIf="showClientTable" (close)="showClientTable = false"></client-table>
     <div class="row justify-content-center mt-2">
@@ -32,20 +32,25 @@
         <div class="col-md-4 bg-light rounded shadow-sm m-3 text-center management-box">
             <h4 class="mb-3">Manage Books</h4>
             <div class="d-flex justify-content-center gap-2">
-                <button type="button" class="btn btn-outline-success">Add new Book</button>
-                <button type="button" class="btn btn-outline-danger">Delete</button>
-                <button type="button" class="btn btn-outline-warning">Update info</button>
+                <button type="button" class="btn btn-outline-success"  (click)="showBookForm = true">Add new Book</button>
+                <button type="button" class="btn btn-outline-info">View & Manage Books</button>
+                <!-- <button type="button" class="btn btn-outline-danger">Delete</button>
+                <button type="button" class="btn btn-outline-warning">Update info</button> -->
             </div>
         </div>
-
+        <!-- MODAL BOOKS -->
+         <book-form *ngIf="showBookForm" (close)="showBookForm = false"></book-form>
         <!-- LOANS -->
         <div class="col-md-4 bg-light rounded shadow-sm m-3 text-center management-box">
             <h4 class="mb-3">Manage Loans</h4>
             <div class="d-flex justify-content-center gap-2">
-                <button type="button" class="btn btn-outline-success">Make new Loan</button>
-                <button type="button" class="btn btn-outline-danger">Delete</button>
-                <button type="button" class="btn btn-outline-warning">Update info</button>
+                <button type="button" class="btn btn-outline-success"  (click)="showLoanForm = true">Make new Loan</button>
+                <button type="button" class="btn btn-outline-info" >View & Manage Loans</button>
+                <!-- <button type="button" class="btn btn-outline-danger">Delete</button>
+                <button type="button" class="btn btn-outline-warning">Update info</button> -->
             </div>
         </div>
+        <!-- MODAL LOAN -->
+         <loan-form *ngIf="showLoanForm" (close)="showLoanForm = false"></loan-form>
     </div>
 </div>

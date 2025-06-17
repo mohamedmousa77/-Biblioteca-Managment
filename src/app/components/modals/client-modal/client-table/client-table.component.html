@@ -28,8 +28,8 @@
                             <td>{{client.telefono}}</td>  
                             <!-- <pre>{{ author | json }}</pre> -->
                             <div class="d-grid gap-2 d-md-block p-2">
-                                <td><button class="btn btn-outline-danger btn-lg" (click)="deleteClient(client.Persona.id)">Delete</button></td>
-                                <td><button class="btn btn-outline-primary btn-lg" (click)="editeClient(client.Persona.id, client)">Edit</button></td>
+                                <td><button class="btn btn-outline-danger btn-lg" (click)="deleteClient(client.Persona.id!)">Delete</button></td>
+                                <!-- <td><button class="btn btn-outline-primary btn-lg" (click)="editeClient(client.Persona.id!, client)">Edit</button></td> -->
                             </div>
                         </tr>
                     </tbody>
