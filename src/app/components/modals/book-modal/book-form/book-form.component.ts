@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { BookService } from '../../../../services/book-services/book.service';
 import { Book } from '../../../../../models/book-model';
 import { AuthorModalComponent } from '../../author-modal/author-form/author-modal.component';
-
+import { Author } from '../../../../../models/author-model';
+import { AuthorService } from '../../../../services/author-services/author.service';
 
 
 @Component({
@@ -19,31 +20,83 @@ export class BookFormComponent {
 
    bookForm: FormGroup;
 
+   authors: Author [] = [];
+   autoreSelezionato? :Author;
+
+   authorLoaded: boolean = false;
+
   book: Book = {
     AnnoPubblicazione: new Date,
     CasaEditrice: '',
     Genere: '',
     ISBN: 0,
     QuantitaMagazzino: 0,
-    Titolo: ''
-
-
+    Titolo: '',
+    autore: 
+    {
+    persona: 
+    {
+      id: 0,
+      nome: '',
+      cognome: ''
+    },
+    casaEditrice: '',
+    indiceDiGradimento: 0
+    }
   }
 
-   constructor(private bookService: BookService, private fb: FormBuilder) {
+   constructor(private bookService: BookService, private fb: FormBuilder, private authorServices: AuthorService) {
     this.bookForm = this.fb.group({
       titolo: ['', Validators.required],
       ISBN: ['', Validators.required],
       CasaEditrice: ['', Validators.required],
       AnnoPubblicazione: ['', Validators.required],
       Genere: ['', Validators.required],
-      QuantitaMagazzino: ['', Validators.required]
+      QuantitaMagazzino: ['', Validators.required],
+      autore: ['', Validators.required]
     });
+   }
+
+   ngOnInit() {
+    this.loadAuthors(); 
+   }
+
+   loadAuthors() {
+    console.log('Load author called')
+    this.authorServices.getAllAuthors().subscribe((data: any[]) => {
+    this.authors = data.map(d => ({
+      casaEditrice: d.casaEditrice,
+      indiceDiGradimento: d.indiceDiGradimento,
+      persona:  
+      {
+        id: d.persona.id,
+        nome: d.persona.nome,
+        cognome: d.persona.cognome
+      }
+
+    }));
+
+    this.authorLoaded = true;
+    this.autoreSelezionato = this.authors[0];
+    console.log("Dati caricati:", this.authors);
+        this.authors.forEach((a, i) => {
+      console.log(`Autore [${i}]`, a);
+      console.log("Persona:", a.persona);
+        });
+    });
+   }
+
+   selectAuthor (author : Author) {
+    console.log("Select author called! ");
+    if (author != null ) {
+      this.autoreSelezionato = author;
+      this.bookForm.patchValue({ autore: this.autoreSelezionato });
+    }
    }
 
    submitForm() {
     if (this.bookForm.valid) {
-      console.log("✅ Author form data to send:", this.bookForm.value); 
+      console.log("✅ Book form data to send:", this.bookForm.value); 
       const formData = this.bookForm.value;
       
       this.book = {
@@ -51,22 +104,23 @@ export class BookFormComponent {
         CasaEditrice: formData.CasaEditrice,
         Genere: formData.Genere,
         ISBN: formData.ISBN,
-        QuantitaMagazzino: formData.QuantitaMagazzino,
+        QuantitaMagazzino: Number(formData.QuantitaMagazzino),
         Titolo: formData.titolo,
-    };
-    console.log("✅ Author form data to send:", formData); 
-    console.log("✅ Payload to send:", this.book);
+        autore: formData.autore, 
+      };
+    console.log("✅ Book form data to send:", formData); 
+    // console.log("✅ Payload to send:", this.book);
 
-
-    //   this.bookService.createNewBook(this.book).subscribe({
-    //   next: (result) => {
-    //     console.log("✅ Autore salvato:", result);
-    //     this.close.emit(); // chiudi popup
-    //   },
-    //   error: (err) => {
-    //     console.error("❌ Error occurred during creating author:", err);
-    //   }
-    // });
+    console.log("📦 JSON to send:", JSON.stringify(this.book, null, 2));
+      this.bookService.createNewBook(this.book).subscribe({
+      next: (result) => {
+        console.log("✅ libro salvato:", result);
+        this.close.emit(); // chiudi popup
+      },
+      error: (err) => {
+        console.error("❌ Error occurred during creating book:", err);
+      }
+    });
 
   } else {
     console.warn("❌ Form is invalid!", this.bookForm);

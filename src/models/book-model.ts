@@ -2,7 +2,7 @@ import { Author } from "./author-model";
 
 export interface Book {
     id?: number,
-    Author?: Author,
+    autore: Author,
     ISBN: number,
     Titolo: string,
     QuantitaMagazzino: number,

@@ -31,6 +31,7 @@ export class AuthorTableComponent {
   //     console.log("Persona:", a.Persona);
   //   });
   // });
+  
   this.AuthorS.getAllAuthors().subscribe((data: any[]) => {
     this.authors = data.map(d => ({
       casaEditrice: d.casaEditrice,

@@ -10,7 +10,7 @@ import { Book } from '../../../models/book-model';
 })
 export class BookService {
 
-  private apiUrl = `${enviroment.apiUrl}/Books`;
+  private apiUrl = `${enviroment.apiUrl}/Libro`;
 
   constructor(private http: HttpClient) { }
 

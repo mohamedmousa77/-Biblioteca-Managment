@@ -32,7 +32,31 @@
                     </div>
                     <div class="mb-3">
                     <label class="form-label">Quantita Magazzino</label>
-                    <input type="date" class="form-control" formControlName="QuantitaMagazzino">
+                    <input type="number" class="form-control" formControlName="QuantitaMagazzino">
+                    </div>
+                    <div class="dropdown" *ngIf="authorLoaded">
+                        <!-- <button 
+                            class="btn btn-light border rounded w-100 text-start dropdown-toggle justify-content-between align-items-center" 
+                            data-bs-toggle="dropdown" 
+                            aria-expanded="false">
+                            {{autoreSelezionato?.persona?.nome}}
+                        </button> -->
+                          <button 
+                            class="btn btn-light border rounded w-100 d-flex justify-content-between align-items-center" 
+                            data-bs-toggle="dropdown" 
+                            aria-expanded="false">
+                            <span>{{autoreSelezionato?.persona?.cognome}}</span>
+                            <span class="dropdown-toggle ms-2"></span>
+                        </button>
+
+                        
+                        <ul class="dropdown-menu w-100">
+                            <li *ngFor="let author of authors">
+                                <a class="dropdown-item" href="#" (click)="selectAuthor(author)">{{author.persona.cognome}}</a>
+                            </li>
+                            <!-- <li><a class="dropdown-item" href="#">Giulia Bianchi</a></li>
+                            <li><a class="dropdown-item" href="#">Luigi Verdi</a></li> -->
+                        </ul>
                     </div>
                     <button type="submit" class="btn btn-primary">Salva</button>
                 </form>
