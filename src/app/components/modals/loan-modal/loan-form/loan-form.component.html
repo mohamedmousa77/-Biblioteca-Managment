@@ -4,9 +4,63 @@
         <div class="modal-content">
 
             <div class="modal-header">
-                <h5 class="modal-title">Add New Author</h5>
+                <h5 class="modal-title">Add New loan</h5>
                 <button type="button" class="btn-close" (click)="closeModal()"></button>
             </div>
-        </div>
-    </div>
-</div>
+
+            <div class="modal-body">
+                <form [formGroup]="LoanForm" (ngSubmit)="submitForm()">
+                    <div class="dropdown">
+                        <button 
+                            class="btn btn-light border rounded w-100 d-flex justify-content-between align-items-center" 
+                            data-bs-toggle="dropdown" 
+                            aria-expanded="false">
+                            <span>Please select an author</span>
+                            <!-- <span>{{autoreSelezionato?.persona?.cognome}}</span> -->
+                            <span class="dropdown-toggle ms-2"></span>
+                        </button>
+                        <ul class="dropdown-menu w-100">
+                            <li *ngFor="let author of authors">
+                                <a class="dropdown-item" href="#" (click)="selectAuthor(author)">{{author.persona.cognome}}</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown mt-2">
+                        <button 
+                            class="btn btn-light border rounded w-100 d-flex justify-content-between align-items-center" 
+                            data-bs-toggle="dropdown" 
+                            aria-expanded="false">
+                            <span>Please select a client</span>
+                            <!-- <span>{{clienteSelezionato?.persona?.cognome}}</span> -->
+                            <span class="dropdown-toggle ms-2"></span>
+                        </button>
+                        <ul class="dropdown-menu w-100">
+                            <li *ngFor="let client of clients">
+                                <a class="dropdown-item" (click)="selectClient(client)">{{client.persona.cognome}}</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown mt-2">
+                        <button
+                            class="btn btn-light border rounded w-100 d-flex justify-content-between align-items-center" 
+                            data-bs-toggle="dropdown" 
+                            aria-expanded="false">
+                            <span>{{ libroSelezionato?.Titolo || 'Please select a book' }}</span>
+                            <!-- <span>{{libroSelezionato?.Titolo ? "Please select a book"  : libroSelezionato?.Titolo}}</span> -->
+                            <span class="dropdown-toggle ms-2"></span>
+                        </button>
+                        <ul *ngIf="books.length > 0" class="dropdown-menu w-100">
+                            <li *ngFor="let book of books">
+                                <a class="dropdown-item" (click)="selectBook(book)">{{book.Titolo}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Salva</button>
+                </form>
+            </div>
+
+        </div> <!-- modal-content -->
+    </div> <!-- modal-dialog -->
+</div> <!-- modal -->

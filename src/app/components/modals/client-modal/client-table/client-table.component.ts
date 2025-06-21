@@ -22,7 +22,7 @@ export class ClientTableComponent {
     this.clients = data.map(d => ({
       // Mail
       mail: d.mail,
-      Persona: d.persona,
+      persona: d.persona,
       socio: d.socio,
       telefono: d.telefono,
     }));
@@ -30,7 +30,7 @@ export class ClientTableComponent {
     console.log("Dati caricati:", this.clientSer);
         this.clients.forEach((a, i) => {
       console.log(`Autore [${i}]`, a);
-      console.log("Persona:", a.Persona);
+      console.log("Persona:", a.persona);
     });
   });
 }
@@ -42,7 +42,7 @@ deleteClient(id: number)
   this.clientSer.deleteClient(id).subscribe({
         next: (response) => {
           console.log(`Cliente eliminato!, ${response}`);
-          this.clients = this.clients.filter(e => e.Persona.id !== id);
+          this.clients = this.clients.filter(e => e.persona.id !== id);
         },
         error: (err) => {
           console.error('error deleting employee', err);

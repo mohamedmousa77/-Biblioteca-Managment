@@ -1,7 +1,7 @@
 import { Persona } from "./persona-model"
 
 export interface Client {
-    Persona: Persona,
+    persona: Persona,
     mail: string,
     telefono: string,
     socio:boolean

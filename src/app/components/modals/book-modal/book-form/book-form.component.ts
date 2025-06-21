@@ -16,14 +16,14 @@ import { AuthorService } from '../../../../services/author-services/author.servi
 })
 export class BookFormComponent {
 
-   @Output() close = new EventEmitter<void>();
+  @Output() close = new EventEmitter<void>();
 
-   bookForm: FormGroup;
+  bookForm: FormGroup;
 
-   authors: Author [] = [];
-   autoreSelezionato? :Author;
+  authors: Author [] = [];
+  autoreSelezionato? :Author;
 
-   authorLoaded: boolean = false;
+  authorLoaded: boolean = false;
 
   book: Book = {
     AnnoPubblicazione: new Date,
@@ -45,7 +45,7 @@ export class BookFormComponent {
     }
   }
 
-   constructor(private bookService: BookService, private fb: FormBuilder, private authorServices: AuthorService) {
+  constructor(private bookService: BookService, private fb: FormBuilder, private authorServices: AuthorService) {
     this.bookForm = this.fb.group({
       titolo: ['', Validators.required],
       ISBN: ['', Validators.required],
@@ -55,26 +55,27 @@ export class BookFormComponent {
       QuantitaMagazzino: ['', Validators.required],
       autore: ['', Validators.required]
     });
-   }
+  }
 
-   ngOnInit() {
-    this.loadAuthors(); 
-   }
+  ngOnInit() {
+  this.loadAuthors(); 
+  }
 
-   loadAuthors() {
-    console.log('Load author called')
-    this.authorServices.getAllAuthors().subscribe((data: any[]) => {
-    this.authors = data.map(d => ({
+  loadAuthors() {
+  console.log('Load author called')
+  this.authorServices.getAllAuthors().subscribe((data: any[]) => {
+    this.authors = data.map
+    (d => ({
       casaEditrice: d.casaEditrice,
       indiceDiGradimento: d.indiceDiGradimento,
       persona:  
-      {
-        id: d.persona.id,
-        nome: d.persona.nome,
-        cognome: d.persona.cognome
-      }
-
-    }));
+        {
+          id: d.persona.id,
+          nome: d.persona.nome,
+          cognome: d.persona.cognome
+        }
+      })
+    );
 
     this.authorLoaded = true;
     this.autoreSelezionato = this.authors[0];
@@ -84,19 +85,19 @@ export class BookFormComponent {
       console.log("Persona:", a.persona);
         });
     });
-   }
+  }
 
-   selectAuthor (author : Author) {
-    console.log("Select author called! ");
-    if (author != null ) {
-      this.autoreSelezionato = author;
-      this.bookForm.patchValue({ autore: this.autoreSelezionato });
-    }
-   }
+  selectAuthor (author : Author) {
+  console.log("Select author called! ");
+  if (author != null ) {
+    this.autoreSelezionato = author;
+    this.bookForm.patchValue({ autore: this.autoreSelezionato });
+  }
+  }
 
-   submitForm() {
-    if (this.bookForm.valid) {
-      console.log("✅ Book form data to send:", this.bookForm.value); 
+  submitForm() {
+  if (this.bookForm.valid) {
+    console.log("✅ Book form data to send:", this.bookForm.value); 
       const formData = this.bookForm.value;
       
       this.book = {
@@ -112,6 +113,7 @@ export class BookFormComponent {
     // console.log("✅ Payload to send:", this.book);
 
     console.log("📦 JSON to send:", JSON.stringify(this.book, null, 2));
+
       this.bookService.createNewBook(this.book).subscribe({
       next: (result) => {
         console.log("✅ libro salvato:", result);

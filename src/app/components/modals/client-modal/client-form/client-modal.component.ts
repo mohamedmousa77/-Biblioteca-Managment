@@ -18,7 +18,7 @@ export class ClientModalComponent {
   clientForm: FormGroup;
 
   client: Client = {
-    Persona: {
+    persona: {
       cognome: '',
       // id: 0,
       nome: ''
@@ -43,7 +43,7 @@ export class ClientModalComponent {
       var formData = this.clientForm.value;
 
       this.client = {
-      Persona: {
+      persona: {
         // id: 0,
         nome: formData.nome,
         cognome: formData.cognome

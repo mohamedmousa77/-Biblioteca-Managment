@@ -21,15 +21,15 @@
                     </thead>
                     <tbody *ngIf="dataReady" >
                         <tr *ngFor="let client of clients">
-                            <td>{{client.Persona.id}}</td>
-                            <td>{{client.Persona.nome}}</td>
-                            <td>{{client.Persona.cognome}}</td>
+                            <td>{{client.persona.id}}</td>
+                            <td>{{client.persona.nome}}</td>
+                            <td>{{client.persona.cognome}}</td>
                             <td>{{client.mail}}</td>
                             <td>{{client.telefono}}</td>  
                             <!-- <pre>{{ author | json }}</pre> -->
                             <div class="d-grid gap-2 d-md-block p-2">
-                                <td><button class="btn btn-outline-danger btn-lg" (click)="deleteClient(client.Persona.id!)">Delete</button></td>
-                                <!-- <td><button class="btn btn-outline-primary btn-lg" (click)="editeClient(client.Persona.id!, client)">Edit</button></td> -->
+                                <td><button class="btn btn-outline-danger btn-lg" (click)="deleteClient(client.persona.id!)">Delete</button></td>
+                                <!-- <td><button class="btn btn-outline-primary btn-lg" (click)="editeClient(client.persona.id!, client)">Edit</button></td> -->
                             </div>
                         </tr>
                     </tbody>

@@ -6,7 +6,7 @@ export interface Loan {
     book: Book,
     client: Client,
     author: Author,
-    dataDiConsegna: Date,
+    dataDiConsegna?: Date,
     dataDiScadenza: Date,
     DataPrestito: Date
 }
