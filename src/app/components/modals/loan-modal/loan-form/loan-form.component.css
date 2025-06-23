@@ -1,16 +1,15 @@
 .dropdown-menu .dropdown-item:hover {
-    background-color: #f8f9fa; /* Matches Bootstrap's light theme */
+    background-color: #f8f9fa;
     color: #212529;
 }
 
-  /* Optional: active item style */
+
 .dropdown-menu .dropdown-item.active,
 .dropdown-menu .dropdown-item:active {
     background-color: #e9ecef;
     color: #212529;
 }
 
-/* Margin below dropdown */
 .dropdown {
     margin-bottom: 1rem;
 }

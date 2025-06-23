@@ -26,12 +26,12 @@ export class BookFormComponent {
   authorLoaded: boolean = false;
 
   book: Book = {
-    AnnoPubblicazione: new Date,
-    CasaEditrice: '',
-    Genere: '',
-    ISBN: 0,
-    QuantitaMagazzino: 0,
-    Titolo: '',
+    annoPubblicazione: new Date,
+    casaEditrice: '',
+    genere: '',
+    isbn: 0,
+    quantitaMagazzino: 0,
+    titolo: '',
     autore: 
     {
     persona: 
@@ -48,11 +48,11 @@ export class BookFormComponent {
   constructor(private bookService: BookService, private fb: FormBuilder, private authorServices: AuthorService) {
     this.bookForm = this.fb.group({
       titolo: ['', Validators.required],
-      ISBN: ['', Validators.required],
-      CasaEditrice: ['', Validators.required],
-      AnnoPubblicazione: ['', Validators.required],
-      Genere: ['', Validators.required],
-      QuantitaMagazzino: ['', Validators.required],
+      isbn: ['', Validators.required],
+      casaEditrice: ['', Validators.required],
+      annoPubblicazione: ['', Validators.required],
+      genere: ['', Validators.required],
+      quantitaMagazzino: ['', Validators.required],
       autore: ['', Validators.required]
     });
   }
@@ -101,12 +101,12 @@ export class BookFormComponent {
       const formData = this.bookForm.value;
       
       this.book = {
-        AnnoPubblicazione: formData.AnnoPubblicazione,
-        CasaEditrice: formData.CasaEditrice,
-        Genere: formData.Genere,
-        ISBN: formData.ISBN,
-        QuantitaMagazzino: Number(formData.QuantitaMagazzino),
-        Titolo: formData.titolo,
+        annoPubblicazione: formData.annoPubblicazione,
+        casaEditrice: formData.casaEditrice,
+        genere: formData.genere,
+        isbn: formData.isbn,
+        quantitaMagazzino: Number(formData.quantitaMagazzino),
+        titolo: formData.titolo,
         autore: formData.autore, 
       };
     console.log("✅ Book form data to send:", formData); 

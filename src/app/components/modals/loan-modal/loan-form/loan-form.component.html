@@ -15,8 +15,8 @@
                             class="btn btn-light border rounded w-100 d-flex justify-content-between align-items-center" 
                             data-bs-toggle="dropdown" 
                             aria-expanded="false">
-                            <span>Please select an author</span>
-                            <!-- <span>{{autoreSelezionato?.persona?.cognome}}</span> -->
+                            <!-- <span>Please select an author</span> -->
+                            <span>{{autoreSelezionato?.persona?.cognome ||' Please select an author '}}</span>
                             <span class="dropdown-toggle ms-2"></span>
                         </button>
                         <ul class="dropdown-menu w-100">
@@ -31,8 +31,8 @@
                             class="btn btn-light border rounded w-100 d-flex justify-content-between align-items-center" 
                             data-bs-toggle="dropdown" 
                             aria-expanded="false">
-                            <span>Please select a client</span>
-                            <!-- <span>{{clienteSelezionato?.persona?.cognome}}</span> -->
+                            <!-- <span>Please select a client</span> -->
+                            <span>{{clienteSelezionato?.persona?.cognome || 'Please select a client' }}</span>
                             <span class="dropdown-toggle ms-2"></span>
                         </button>
                         <ul class="dropdown-menu w-100">
@@ -47,13 +47,13 @@
                             class="btn btn-light border rounded w-100 d-flex justify-content-between align-items-center" 
                             data-bs-toggle="dropdown" 
                             aria-expanded="false">
-                            <span>{{ libroSelezionato?.Titolo || 'Please select a book' }}</span>
-                            <!-- <span>{{libroSelezionato?.Titolo ? "Please select a book"  : libroSelezionato?.Titolo}}</span> -->
+                            <span>{{ libroSelezionato?.titolo || 'Please select a book' }}</span>
+                            <!-- <span>{{libroSelezionato?.titolo ? "Please select a book"  : libroSelezionato?.titolo}}</span> -->
                             <span class="dropdown-toggle ms-2"></span>
                         </button>
                         <ul *ngIf="books.length > 0" class="dropdown-menu w-100">
                             <li *ngFor="let book of books">
-                                <a class="dropdown-item" (click)="selectBook(book)">{{book.Titolo}}</a>
+                                <a class="dropdown-item" (click)="selectBook(book)">{{book.titolo}}</a>
                             </li>
                         </ul>
                     </div>
