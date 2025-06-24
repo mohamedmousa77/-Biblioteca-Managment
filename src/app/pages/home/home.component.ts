@@ -7,6 +7,8 @@ import { AuthorTableComponent } from '../../components/modals/author-modal/autho
 import { ClientTableComponent } from '../../components/modals/client-modal/client-table/client-table.component';
 import { BookFormComponent } from '../../components/modals/book-modal/book-form/book-form.component';
 import { LoanFormComponent } from '../../components/modals/loan-modal/loan-form/loan-form.component';
+import { BookTableComponent } from '../../components/modals/book-modal/book-table/book-table.component';
+import { LoanTableComponent } from '../../components/modals/loan-modal/loan-table/loan-table.component';
 @Component({
   selector: 'app-home',
   imports: [
@@ -17,6 +19,8 @@ import { LoanFormComponent } from '../../components/modals/loan-modal/loan-form/
     ClientTableComponent,
     BookFormComponent,
     LoanFormComponent,
+    BookTableComponent,
+    LoanTableComponent,
   ],
   standalone: true,
   templateUrl: './home.component.html',
@@ -30,6 +34,8 @@ export class HomeComponent {
   showClientTable = false;
 
   showBookForm = false;
+  showBookTable = false;
 
   showLoanForm = false;
+  showLoanTable = false;
 }

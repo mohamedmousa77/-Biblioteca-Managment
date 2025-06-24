@@ -1,1 +1,42 @@
-<p>book-table works!</p>
+<div class="modal-backdrop show"></div>
+<div class="modal show d-block" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">Manage Books</h5>
+                <button type="button" class="btn-close" (click)="closeModal()"></button>
+            </div>
+
+            <div class="modal-body">
+                <table class="table table-hover"  *ngIf="books.length > 0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Titolo</th>
+                            <th scope="col">ISBN</th>
+                            <th scope="col">Autore cognome</th> 
+                            <th scope="col">Genere</th> 
+                            <th scope="col">Quantita disponibile</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="dataReady" >
+                        <tr *ngFor="let book of books">
+                            <td>{{book.titolo}}</td>
+                            <td>{{book.isbn}}</td>
+                            <td>{{book.autore.persona.cognome}}</td>
+                            <td>{{book.genere}}</td>
+                            <td>{{book.quantitaMagazzino}}</td>
+                            <!-- <pre>{{ book | json }}</pre> -->
+                            <div class="d-grid gap-2 d-md-block p-2">
+                                <td><button class="btn btn-outline-danger btn-lg" (click)="deleteBook(book.id!)">Delete Book</button></td>
+                                <!-- (click)="deleteAuthor(author.persona.id!)" -->
+                                <!-- <td><button class="btn btn-outline-primary btn-lg" (click)="editeAuthor(author.persona.id!, author)">Edit</button></td> -->
+                            </div>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

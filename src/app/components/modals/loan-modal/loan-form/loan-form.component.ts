@@ -38,7 +38,7 @@ export class LoanFormComponent {
 
 
   loan: Loan = {
-    author: 
+    autore: 
     {
     persona: 
     {
@@ -49,7 +49,7 @@ export class LoanFormComponent {
     casaEditrice: '',
     indiceDiGradimento: 0
     },
-    client: {
+    cliente: {
     persona: 
     {
       id: 0,
@@ -80,8 +80,8 @@ export class LoanFormComponent {
       titolo: '',
     },
     dataDiConsegna: new Date,
-    dataDiScadenza: '',
-    DataPrestito: '',
+    dataScadenza: '',
+    dataPrestito: '',
   }
 
   constructor(private fb: FormBuilder, private bookService: BookService, private authorServices: AuthorService, private clientService: ClientService, private loanService: LoanService) {

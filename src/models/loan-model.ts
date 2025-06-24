@@ -3,10 +3,11 @@ import { Book } from "./book-model";
 import { Client } from "./client-model";
 
 export interface Loan {
+    id?: number,
     libroPrestato: Book,
-    client: Client,
-    author: Author,
+    cliente: Client,
+    autore: Author,
     dataDiConsegna?: Date,
-    dataDiScadenza: string,
-    DataPrestito: string
+    dataScadenza: string,
+    dataPrestito: string
 }

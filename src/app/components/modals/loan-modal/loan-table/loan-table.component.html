@@ -1,0 +1,40 @@
+<div class="modal-backdrop show"></div>
+<div class="modal show d-block" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">Manage Loans</h5>
+                <button type="button" class="btn-close" (click)="closeModal()"></button>
+            </div>
+
+            <div class="modal-body">
+                <table class="table table-hover"  *ngIf="loansList.length > 0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Cognome del cliente</th>
+                            <th scope="col">Cognome dell'Autore</th>
+                            <th scope="col">Titolo del Libro</th> 
+                            <th scope="col">Data di Prestito</th>
+                            <th scope="col">Data di Consegna</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="isDataReady" >
+                        <tr *ngFor="let loan of loansList">
+                            <td>{{loan.cliente.persona.cognome}}</td>
+                            <td>{{loan.autore.persona.cognome}}</td>
+                            <td>{{loan.libroPrestato.titolo}}</td>
+                            <td>{{loan.dataPrestito|date:'d MMMM y'}}</td>
+                            <td>{{loan.dataScadenza|date:'d MMMM y'}}</td>
+                            <div class="d-grid gap-2 d-md-block p-2">
+                                <td><button class="btn btn-outline-danger btn-lg" (click)="RegistraConsegna(0)">Consegnato</button></td>
+                                <!-- <td><button class="btn btn-outline-primary btn-lg" (click)="editeAuthor(author.persona.id!, author)">Edit</button></td> -->
+                            </div>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
