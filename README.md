@@ -35,6 +35,11 @@ Intuitive Tkinter-based interface for smooth navigation.
 - Entity Framework Core
 - SQLite / SQL Server
 
+📌 TODO (Next Steps)
+ Add authentication with JWT
+
+ Add user roles (admin, librarian, guest)
+ 
 ---
 **🙋‍♂️ Author**
 
