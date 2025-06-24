@@ -21,17 +21,21 @@ Easily search for books or members using filters.
 
 🖼️ User-Friendly GUI
 Intuitive Tkinter-based interface for smooth navigation.
+---
 
-**🧰 Tech Stack**
-| Layer     | Technology                          |
-| --------- | ----------------------------------- |
-| Frontend  | Angular 16+                         |
-| Backend   | ASP.NET Core Web API                |
-| Database  | SQL Server / Entity Framework       |
-| API Comm  | RESTful API (JSON)                  |
-| UI Design | Angular Material And Bootstrap      |
+## 🛠️ Tecnologie utilizzate
 
+### Frontend
+- Angular 17+
+- SCSS / Tailwind CSS
+- Chart.js o ngx-charts (per grafici)
 
+### Backend
+- ASP.NET Core Web API
+- Entity Framework Core
+- SQLite / SQL Server
+
+---
 **🙋‍♂️ Author**
 
 Mohamed Mousa:
